@@ -312,7 +312,6 @@ def menuNAVTOM():
 		print ("#                                           #")
 		print ("#############################################")
 		input("PULSA ENTER PARA SALIR...")
-		os.system("D:\appz\02_GPS\00_TOMTOM\01_MAPAS\02_Activadores\Activador Mapas V7-V8\Activador Mapas V7-V8.cmd")
 		salida()
 		
 	if (ans==1): actualiza(1)
