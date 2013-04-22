@@ -22,7 +22,7 @@
 #       
 #       
 
-import os, win32api, sys, re
+import os, win32api, sys, re, datetime
 #-------archivo ini
 homedir = os.path.expanduser("~")
 #conffile = homedir+"\menu_navegadores.ini"
