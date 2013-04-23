@@ -143,16 +143,15 @@ def menuNAVTOM():
 			if os.path.exists(ttgobifurl)==1:
 				os.system ("attrib +r %s" % (ttgobifurl))
 				print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " PROTEGIDO ARCHIVO 'ttgo.bif'...OK")
- 				os.system ("del /S /Q /A:-R %s" % ((uniex).rstrip('\\')))
-				#os.system ("del /S /Q /A:-R %s" % ((uniex)))
+				os.system ("del /S /Q /A:-R %s" % ((uniex).rstrip('\\')))
 				print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " BORRADO VOLUMEN COMPLETO...OK")
- 				os.system ("attrib -r %s" % (ttgobifurl))
+				os.system ("attrib -r %s" % (ttgobifurl))
 				print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " RESTAURADO 'ttgo.bif'...OK")
- 			else:
+			else:
 				print ("ttgo.bif NO PRESENTE")
-				os.system ("del /S /Q %s" % ((uniex).rstrip('\\')))
+				os.system ("format /Q /V:TomTom %s" % ((uniex).rstrip('\\')))
 				print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " BORRADO VOLUMEN COMPLETO...OK")
- 
+
 		if mapa==1:
 			protectttgobif()
 			print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " NAVCORE RECOMENDADO ACTUAL COPIA INICIADA...")
