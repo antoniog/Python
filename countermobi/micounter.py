@@ -42,39 +42,22 @@ class MainWin:
     # Se definen los métodos, en este caso señales como "destroy" ya fueron
     # definidas en el .glade, así solo se necesita definir "on_button1_clicked"
     def on_button1_clicked(self, widget):
-<<<<<<< HEAD
-        Tstart = datetime.datetime.now()
-        tt = Tstart.timetuple()
-        print Tstart
-        cur = con.cursor()
-        cur.execute("INSERT INTO micounter(start,total) VALUES (?,0)", (tt,))
-        print 
-=======
         start = datetime.datetime.now()
         id_rep_str = self.entry3.get_text()
         cur = con.cursor()
         cur.execute("INSERT INTO micounter(id_rep,start,total) VALUES (?,DateTime('now','localtime'),0)", [id_rep_str])
->>>>>>> 1b94209859394058081252fde7dd24f44d87d57a
         con.commit()
-        Tnow = datetime.datetime.now()
-        homise = Tnow.strftime("%H:%M:%S")
+        now = datetime.datetime.now()
+        homise = now.strftime("%H:%M:%S")
         self.entry1.set_text("%s" % homise)
-<<<<<<< HEAD
-        # elapsed_math = (now-start)
-        # elapsed = elapsed_math.seconds
-        # self.entry2.set_text("%s" % elapsed_math)
-        widget.set_sensitive(False)
-
-=======
         widget.set_sensitive(False)
 
     def on_button2_clicked(self, widget):
         cur = con.cursor()
-        cur.execute("SELECT start FROM micounter INNER JOIN id_rep=blabla")
+        #cur.execute("SELECT start FROM micounter INNER JOIN id_rep=blabla")
         elapsed_math = (now-start)
         elapsed = elapsed_math.seconds
         self.entry2.set_text("%s" % elapsed_math)
->>>>>>> 1b94209859394058081252fde7dd24f44d87d57a
 
 # Para terminar iniciamos el programa
 if __name__ == "__main__":
