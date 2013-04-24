@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 # Importamos el módulo pygtk y le indicamos que use la versión 2
-import pygtk
+#import pygtk
 #pygtk.require("2.24")
 
 # Luego importamos el módulo de gtk y el gtk.glade, este ultimo que nos sirve
@@ -43,7 +43,7 @@ class MainWin:
     def on_button1_clicked(self, widget):
         start = datetime.datetime.now()
         cur = con.cursor()
-        cur.execute("INSERT INTO micounter(start,total) VALUES (DateTime('now'),0)")
+        cur.execute("INSERT INTO micounter(start,total) VALUES (DateTime('now','localtime'),0)")
         con.commit()
         now = datetime.datetime.now()
         homise = now.strftime("%H:%M:%S")
