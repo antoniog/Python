@@ -172,12 +172,19 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <widget class="GtkButton" id="button1">
-                <property name="label" translatable="yes">Start</property>
+              <widget class="GtkEntry" id="entry3">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <signal name="clicked" handler="on_button1_clicked" swapped="no"/>
+                <property name="max_length">5</property>
+                <property name="invisible_char">•</property>
+                <property name="width_chars">5</property>
+                <property name="invisible_char_set">True</property>
+                <property name="primary_icon_activatable">False</property>
+                <property name="secondary_icon_activatable">False</property>
+                <property name="primary_icon_sensitive">True</property>
+                <property name="secondary_icon_sensitive">True</property>
+                <signal name="activate" handler="on_entry3_activate" swapped="no"/>
+                <signal name="editing_done" handler="on_entry3_editing_done" swapped="no"/>
               </widget>
               <packing>
                 <property name="expand">True</property>
@@ -186,12 +193,13 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="button2">
-                <property name="label" translatable="yes">Transcurrido</property>
+              <widget class="GtkButton" id="button1">
+                <property name="label">Iniciar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="clicked" handler="on_button2_clicked" swapped="no"/>
+                <property name="use_underline">True</property>
+                <signal name="clicked" handler="on_button1_clicked" swapped="no"/>
               </widget>
               <packing>
                 <property name="expand">True</property>
@@ -204,16 +212,12 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <widget class="GtkEntry" id="entry1">
+                  <widget class="GtkButton" id="button2">
+                    <property name="label" translatable="yes">Pausa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="editable">False</property>
-                    <property name="invisible_char">•</property>
-                    <property name="primary_icon_activatable">False</property>
-                    <property name="secondary_icon_activatable">False</property>
-                    <property name="primary_icon_sensitive">True</property>
-                    <property name="secondary_icon_sensitive">True</property>
-                    <signal name="activate" handler="on_entry1_activate" swapped="no"/>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button2_clicked" swapped="no"/>
                   </widget>
                   <packing>
                     <property name="expand">True</property>
@@ -221,29 +225,51 @@
                     <property name="position">0</property>
                   </packing>
                 </child>
-                <child>
-                  <widget class="GtkEntry" id="entry2">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="editable">False</property>
-                    <property name="invisible_char">•</property>
-                    <property name="primary_icon_activatable">False</property>
-                    <property name="secondary_icon_activatable">False</property>
-                    <property name="primary_icon_sensitive">True</property>
-                    <property name="secondary_icon_sensitive">True</property>
-                    <signal name="activate" handler="on_entry2_activate" swapped="no"/>
-                  </widget>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
               </widget>
               <packing>
                 <property name="expand">True</property>
                 <property name="fill">True</property>
                 <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkEntry" id="entry1">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="editable">False</property>
+                <property name="invisible_char">•</property>
+                <property name="width_chars">12</property>
+                <property name="invisible_char_set">True</property>
+                <property name="primary_icon_activatable">False</property>
+                <property name="secondary_icon_activatable">False</property>
+                <property name="primary_icon_sensitive">True</property>
+                <property name="secondary_icon_sensitive">True</property>
+                <signal name="activate" handler="on_entry1_activate" swapped="no"/>
+              </widget>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkEntry" id="entry2">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="editable">False</property>
+                <property name="invisible_char">•</property>
+                <property name="width_chars">5</property>
+                <property name="invisible_char_set">True</property>
+                <property name="primary_icon_activatable">False</property>
+                <property name="secondary_icon_activatable">False</property>
+                <property name="primary_icon_sensitive">True</property>
+                <property name="secondary_icon_sensitive">True</property>
+                <signal name="activate" handler="on_entry2_activate" swapped="no"/>
+              </widget>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">4</property>
               </packing>
             </child>
           </widget>
