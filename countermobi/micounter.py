@@ -41,16 +41,19 @@ class MainWin:
     # Se definen los métodos, en este caso señales como "destroy" ya fueron
     # definidas en el .glade, así solo se necesita definir "on_button1_clicked"
     def on_button1_clicked(self, widget):
-        start = datetime.datetime.now()
+        Tstart = datetime.datetime.now()
+        tt = Tstart.timetuple()
+        print Tstart
         cur = con.cursor()
-        cur.execute("INSERT INTO micounter(start,total) VALUES (DateTime('now'),0)")
+        cur.execute("INSERT INTO micounter(start,total) VALUES (?,0)", (tt,))
+        print 
         con.commit()
-        now = datetime.datetime.now()
-        homise = now.strftime("%H:%M:%S")
+        Tnow = datetime.datetime.now()
+        homise = Tnow.strftime("%H:%M:%S")
         self.entry1.set_text("%s" % homise)
-        elapsed_math = (now-start)
-        elapsed = elapsed_math.seconds
-        self.entry2.set_text("%s" % elapsed_math)
+        # elapsed_math = (now-start)
+        # elapsed = elapsed_math.seconds
+        # self.entry2.set_text("%s" % elapsed_math)
         widget.set_sensitive(False)
 
 
