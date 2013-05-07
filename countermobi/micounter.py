@@ -9,8 +9,7 @@
 # para poder llamar/utilizar al archivo de glade
 import sys
 import gtk
-import gtk
-import glade
+import gtk.glade
 import datetime
 import sqlite3 as lite
 
