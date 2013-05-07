@@ -29,7 +29,7 @@ class MainWin:
         # Creamos un pequeño diccionario que contiene las señales definidas en
         # glade y su respectivo método (o llamada)
         signals = {"on_button1_clicked": self.on_button1_clicked,
-                    "on_button2_clicked": self.on_button2_clicked,
+#                    "on_button2_clicked": self.on_button2_clicked,
                     "gtk_main_quit": gtk.main_quit}
         # Luego se auto-conectan las señales.
         self.widgets.signal_autoconnect(signals)
@@ -56,7 +56,7 @@ class MainWin:
         self.entry1.set_text("%s" % homise)
         widget.set_sensitive(False)
 
-    def on_button2_clicked(self, widget):
+#    def on_button2_clicked(self, widget):
         cur = con.cursor()
         #cur.execute("SELECT start FROM micounter INNER JOIN id_rep=blabla")
         elapsed_math = (now - start)
