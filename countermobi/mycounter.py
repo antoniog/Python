@@ -10,11 +10,14 @@ except:
 try:
     import gtk
     import gtk.glade
-    import sys
     import datetime
     import sqlite3 as lite
 except:
     sys.exit(1)
+
+    # Conexión con la base de datos
+con = lite.connect('mycounter.sqlite')
+
 
 
 class mycounter:
@@ -86,6 +89,10 @@ class procesoDialog:
 
     def run(self):
         """Esto mostrara el mycounter dialogo"""
+        #Establece la hora actual
+        now = datetime.datetime.now()
+        #Formatea la hora actual a HMs
+        homise = now.strftime("%H:%M:%S")
 
         #Carga el diálogo del archivo glade
         self.wTree = gtk.glade.XML(self.gladefile, "ProcesoDlg")
@@ -97,7 +104,8 @@ class procesoDialog:
         self.enNRepa = self.wTree.get_widget("enNRepa")
         self.enNRepa.set_text(self.proceso.NRepa)
         self.enComienzo = self.wTree.get_widget("enComienzo")
-        self.enComienzo.set_text(self.proceso.Comienzo)
+        self.enComienzo.set_text("%s" % homise)
+        self.enComienzo.set_sensitive(False)
 #        self.enTotal = self.wTree.get_widget("enTotal")
 #        self.enTotal.set_text(self.proceso.Total)
 
@@ -107,6 +115,9 @@ class procesoDialog:
 #        self.proceso.ID = self.enID.get_text()
         self.proceso.NRepa = self.enNRepa.get_text()
         self.proceso.Comienzo = self.enComienzo.get_text()
+        cur = con.cursor()
+        cur.execute("INSERT INTO mycounter(id_rep, start, total) VALUES (?,DateTime('now','localtime'),0)", [self.proceso.NRepa])
+        con.commit()
 #        self.proceso.Total = self.enTotal.get_text()
 
         #Hemos acabado con el diálogo, lo destruimos boom
