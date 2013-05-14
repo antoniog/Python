@@ -26,7 +26,7 @@ import os
 import win32api
 import sys
 import re
-import  datetime
+import datetime
 #-------archivo ini
 homedir = os.path.expanduser("~")
 #conffile = homedir+"\menu_navegadores.ini"
@@ -148,11 +148,11 @@ def menuNAVTOM():
         os.system ("cls")
         def protectttgobif():
             if os.path.exists(ttgobifurl)==1:
-                os.system ("attrib +r %s" % (ttgobifurl))
-                print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " PROTEGIDO ARCHIVO 'ttgo.bif'...OK")
-                os.system ("del /S /Q /A:-R %s" % ((uniex).rstrip('\\')))
+                os.system ("copy ttgo.bif %s" % (homedir))
+                print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " COPIADO ARCHIVO 'ttgo.bif'...OK")
+                os.system ("format /Q /V:TomTom %s" % ((uniex).rstrip('\\')))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " BORRADO VOLUMEN COMPLETO...OK")
-                os.system ("attrib -r %s" % (ttgobifurl))
+                os.system ("copy %s %s" % (uniex+'ttgo.bif', homedir))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " RESTAURADO 'ttgo.bif'...OK")
             else:
                 print ("ttgo.bif NO PRESENTE")
@@ -226,7 +226,7 @@ def menuNAVTOM():
         elif mapa==5:
             protectttgobif()
             print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " NAVCORE RECOMENDADO ACTUAL COPIA INICIADA...")
-            os.system ("xcopy %s %s /E /Q /Y" % (navcores+'v8\\GPS_RECEPTOR\\_camion\\8.391', uniex))
+            os.system ("xcopy %s %s /E /Q /Y" % (navcores+'v9\\_Camion\\nav_truck\\', uniex))
             print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " NAVCORE TRUCK ESPECIAL COPIADO CON ÉXITO...OK")
             os.system ("xcopy %s %s /E /Q /Y" % (mapas+'Europe_TRUCK\\Europe_TRUCK\\', uniex))
             print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " MAPA EUROPE TRUCK COPIADO CON ÉXITO...OK")
