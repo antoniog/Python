@@ -148,11 +148,11 @@ def menuNAVTOM():
         os.system ("cls")
         def protectttgobif():
             if os.path.exists(ttgobifurl)==1:
-                os.system ("copy ttgo.bif %s" % (homedir))
+                os.system ("copy %s %s" % (uniex+'ttgo.bif', homedir))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " COPIADO ARCHIVO 'ttgo.bif'...OK")
                 os.system ("format /Q /V:TomTom %s" % ((uniex).rstrip('\\')))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " BORRADO VOLUMEN COMPLETO...OK")
-                os.system ("copy %s %s" % (uniex+'ttgo.bif', homedir))
+                os.system ("move %s %s" % (homedir+'"\\"ttgo.bif', uniex))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " RESTAURADO 'ttgo.bif'...OK")
             else:
                 print ("ttgo.bif NO PRESENTE")
