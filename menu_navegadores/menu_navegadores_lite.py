@@ -114,7 +114,7 @@ def menuNAVTOM():
     os.system('cls')
     print ("<- Menú TOMTOM en", uniex)
     print ("")
-    print ("|---------------------------------------------------------------------|")
+    print (".---------------------------------------------------------------------.")
     print ("|                                                                     |")
     print ("|  1: Actualizar/Instalar Nav + Iberia + pdi                          |")
     print ("|                                                                     |")
@@ -129,7 +129,7 @@ def menuNAVTOM():
     print ("|                                                                     |")
     print ("|  0: Volver                                                          |")
     print ("|                                                                     |")
-    print ("|---------------------------------------------------------------------|")
+    print (".---------------------------------------------------------------------.")
     ans=int(input("Elige una opción: "))
 #-------función de actualización navegador TomTom
     def actualiza(mapa):
@@ -150,13 +150,13 @@ def menuNAVTOM():
             if os.path.exists(ttgobifurl)==1:
                 os.system ("copy %s %s" % (uniex+'ttgo.bif', homedir))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " COPIADO ARCHIVO 'ttgo.bif'...OK")
-                os.system ("format /Q /V:TomTom %s" % ((uniex).rstrip('\\')))
+                os.system ("format /Q /X /V:TomTom %s" % ((uniex).rstrip('\\')))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " BORRADO VOLUMEN COMPLETO...OK")
                 os.system ("move %s %s" % (homedir+'"\\"ttgo.bif', uniex))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " RESTAURADO 'ttgo.bif'...OK")
             else:
                 print ("ttgo.bif NO PRESENTE")
-                os.system ("format /Q /V:TomTom %s" % ((uniex).rstrip('\\')))
+                os.system ("format /Q /X /V:TomTom %s" % ((uniex).rstrip('\\')))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " BORRADO VOLUMEN COMPLETO...OK")
 
         if mapa==1:
@@ -307,9 +307,9 @@ with open(conffile, mode='r', encoding='utf-8') as conffileopn:
     voces=(tomdir+(infile[4])[6:]).rstrip('\n')
 
 drives = win32api.GetLogicalDriveStrings()
-print ("|---------------------------------------------------------------------|")
+print (".---------------------------------------------------------------------.")
 print ("|  UNIDADES DETECTADAS                                                |")
-print ("|---------------------------------------------------------------------|")
+print (".---------------------------------------------------------------------.")
 print (drives)
 print ("")
 uniexinput=input("Introduce la unidad de trabajo: ")
@@ -338,6 +338,7 @@ if os.path.exists(uniex+'ttgo.bif')==1:
             print ("#                  WARNING                  #")
             print ("#                                           #")
             print ("#############################################")
+            input("PULSA ENTER PARA SALIR...")
             salida()
         elif refursearch < 0:
             menu()
