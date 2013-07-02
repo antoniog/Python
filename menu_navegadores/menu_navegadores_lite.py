@@ -126,7 +126,7 @@ def menuNAVTOM():
     print ("|                                                                     |")
     print ("|  5: Actualizar/Instalar Nav + Europe TRUCKS + pdi                   |")
     print ("|                                                                     |")
-    print ("|  6: Actualizar/Instalar Nav + Europe +2GB + pdi                   |")
+    print ("|  6: Actualizar/Instalar Nav + Europe +2GB + pdi                     |")
     print ("|                                                                     |")
     print ("|                                                                     |")
     print ("|  0: Volver                                                          |")
