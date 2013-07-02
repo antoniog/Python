@@ -260,6 +260,9 @@ def menuNAVTOM():
         print ("#")
         os.system("xcopy %s %s /E /Q /Y" % (voces+'voices', uniex+'voices\\'))
         print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " VOCES PREGRABADAS MULTI-LENGUAJE COPIADAS CON ÉXITO...OK")
+        os.system("cd D:\appz\02_GPS\00_TOMTOM\01_MAPAS\02_Activadores\Activador Mapas V7-V8")
+        os.system("d:")
+        os.system("Activador Mapas V7-V8.cmd")
         print ("#")
         print ("#")
         print ("#############################################")
@@ -275,8 +278,9 @@ def menuNAVTOM():
     elif (ans==3): actualiza(3)
     elif (ans==4): actualiza(4)
     elif (ans==5): actualiza(5)
+    elif (ans==6): actualiza(6)
     elif (ans==0): menuNAVSOFT()
-    elif (ans!=1,2,3,4,5,0):
+    elif (ans!=1,2,3,4,5,6,0):
         print ("Haber elegido una opción correcta")
         salida()
 #-------menú gps>software> sygic
