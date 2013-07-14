@@ -122,7 +122,7 @@ def menuNAVTOM():
     print ("|                                                                     |")
     print ("|  3: Actualizar/Instalar Nav + South Europe + East (2GB) + pdi       |")
     print ("|                                                                     |")
-    print ("|  4: Actualizar/Instalar Nav + South Europe 1GB + pdi                |")
+    print ("|  4: Actualizar/Instalar Nav + South Europe 1GB no-carriles + pdi    |")
     print ("|                                                                     |")
     print ("|  5: Actualizar/Instalar Nav + Europe TRUCKS + pdi                   |")
     print ("|                                                                     |")
