@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3.2
+#!/usr/bin/env python3.2
 # -*- coding: utf-8 -*-
 #
 #       sin título.py
@@ -148,20 +148,29 @@ def menuNAVTOM():
                 print ("#")
 
         os.system ("cls")
-        def protectttgobif():
+        def bakfilesclean():
             if os.path.exists(ttgobifurl)==1:
                 os.system ("copy %s %s" % (uniex+'ttgo.bif', homedir))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " COPIADO ARCHIVO 'ttgo.bif'...OK")
+                for r,d,f in os.walk(uniex):
+                    for files in f:
+                        if files.endswith("mapsettings.cfg"):
+                             fullpath = (os.path.join(r,files))
+                             onlypath = fullpath[:-15]
+                             os.system ("copy %s %s" % (uniex+'mapsettings.cfg', homedir))
+                             print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " COPIADO ARCHIVO 'mapsettings.cfg'...OK"
                 os.system ("format /Q /X /V:TomTom %s" % ((uniex).rstrip('\\')))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " BORRADO VOLUMEN COMPLETO...OK")
                 os.system ("move %s %s" % (homedir+'"\\"ttgo.bif', uniex))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " RESTAURADO 'ttgo.bif'...OK")
+                os.system ("move %s %s" % (homedir+'"\\"mapsettings.cfg', uniex))
+                print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " RESTAURADO 'mapsettings.cfg'...OK")
             else:
                 print ("ttgo.bif NO PRESENTE")
                 os.system ("format /Q /X /V:TomTom %s" % ((uniex).rstrip('\\')))
                 print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " BORRADO VOLUMEN COMPLETO...OK")
 
-        protectttgobif()
+        bakfilesclean()
 
         if mapa==1:
             print ("[",datetime.datetime.now().strftime("%H:%M:%S"),"].", " NAVCORE RECOMENDADO ACTUAL COPIA INICIADA...")
